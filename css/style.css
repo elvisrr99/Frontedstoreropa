@@ -1,0 +1,258 @@
+:root{
+    --primario: #9C27B0;
+    --primarioOscuro: #89119D;
+    --secundario: #FFCE00;
+    --secundarioOscuro: rgb(233,187,2);
+    --blanco: #FFF;
+    --negro: #000;
+
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+
+/*--------------------------Globales---------------------*/
+
+body{  
+    background-color: var(--primario);  /*Color principal que es el morado*/
+    font-size: 1.6rem;/*Tamaño de la fuente*/
+    line-height: 1.5;/*Interlineado*/
+}
+
+a{
+    text-decoration: none;/*Quitarle las lineas abajo de los enlaces*/
+}
+p{
+    font-size: 1.8rem;/*Tamaño de los parrafos*/
+    font-family: Arial, Helvetica, sans-serif;/*Tipo de letra parrafos*/
+    color: var(--blanco);/*Color blanco a las letras*/
+}
+h1, h2, h3{
+    text-align: center; /*Textos centrados*/
+    color: var(--secundario); /*Textos de color amarillo*/
+    font-family: var(--fuentePrincipal);/*Textos con tipo de letra*/
+}
+
+h1{
+    font-size: 4rem; /*Tamaño letras*/
+}
+h2{
+    font-size: 3.2rem;/*Tamaño letras*/
+}
+h3{
+    font-size:2.4rem;/*Tamaño letras*/
+}
+img{
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/*--------------------------HEADER-------------------------------------------------------------------------*/
+
+.header{
+    display: flex;/*Nos permite habilitar el siguiente comando*/
+    justify-content: center;   /*Nos permite centrar el logo*/ 
+}
+.header_logo{
+    margin: 3rem 0;/*Nos da un espacio arriba y abajo del logo de 3rem y 0rem a la derecha e izquierda*/
+}
+
+/*--------------------------NAVEGACION------------------------------------------------------------------*/
+.navegacion{
+    background-color: var(--primarioOscuro); /*Añade color de fondo al navegador*/
+    padding: 1rem 0;
+    display: flex;/*Nos permite habilitar el siguiente comando*/
+    justify-content: center;/*Nos permite centrar los enlaces de navegacion*/  
+    gap:2rem;/*Nos permite separa los enlaces en 2 rem ya que el comando anterios pega los enlaces*/         
+}
+
+.navegacion_enlace{
+    font-family: var(--fuentePrincipal); /*Añade el tipo de texto*/
+    font-size: 3rem; /*Tamaño de la letra*/
+    color: var(--blanco);/*Color de la letra*/
+}
+
+.navegacion_enlace--activo,.navegacion_enlace:hover{ /*Este comando hover nos permite cambiarle el color del enlance cuando ponemos el mouse encima*/
+    color: var(--secundario);
+}
+
+
+
+/*---------------------FOOTER--------------------------------------------------------------*/
+
+.footer{   
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto{
+    text-align: center;
+    font-size: 2.2rem;
+    font-family: var(--fuentePrincipal);    
+    
+}
+
+/*---------------------GRID-------------------------------------------------------------*/
+.grid{
+    display: grid; /*Nos permite habilitar el uso de grid*/
+    grid-template-columns: repeat(2, 1fr);/*Nos permite hacer 2 columnas de una fraccion*/
+    gap: 2rem;
+}
+
+@media(min-width: 768px){ /*Este comando es para trabajar la responsividad, nos dice q mientras que el dispositivo sea mayor a 768px se va a ver 3 columas de una fraccion*/
+    .grid{        
+        grid-template-columns: repeat(3, 1fr);/*Nos permite hacer 3 columnas de una fraccion*/
+    }
+}
+
+
+/*-------------------Productos---------------------------------------------------------*/
+
+.producto{
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__imagen{
+    width: 100%;
+}
+.producto__nombre{
+    font-size: 4rem;
+}
+.producto__precio{
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+.producto__nombre,.producto__precio{
+    font-family: var(--fuentePrincipal);
+    margin:1rem;    
+    text-align: center;
+    line-height: 3rem;
+}
+
+
+/*-------------------------Graficos-------------------------------------------------------*/
+
+.grafico{
+    min-height: 30rem;
+    background-repeat: none;/*Este comando es porque las imagenes se repiten ya que no tiene el tamaño adecuado*/
+    background-size: cover;/*Este comando le da el tamaño necesario a la imagen*/
+    grid-column: 1 / 3; 
+}
+
+.grafico__camisas{
+    background-image: url(../img/grafico1.jpg);/*Enlace a la imagen*/
+    grid-row: 2 / 3;  /*Este comando posicion la imagen en el grid en la fila de la 2 a la 3*/     
+}
+.grafico__node{
+    background-image: url(../img/grafico2.jpg); /*Enlace a la imagen*/
+    grid-row: 8 / 9; /*Este comando posicion la imagen en el grid en la fila de la 8 a la 9*/  
+}
+@media(min-width: 768px){
+    .grafico__node{
+        grid-row: 5 / 6; /*Este comando posicion la imagen en el grid en la fila de la 5 a la 6*/  
+        grid-column: 2 / 4; /*Este comando posicion la imagen en el grid en la columna de la 2 a la 4*/  
+    }
+}
+
+
+/*-------------------------------Nosotros---------------------------------------------*/
+
+.nosotros{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+}
+@media(min-width: 768px){
+    .nosotros{      
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.nosotros__imagen{
+    grid-row: 1 / 2;
+ 
+}
+
+@media(min-width: 768px){
+    .nosotros__imagen{
+        grid-column: 2 / 3;
+    }    
+}
+
+
+/*--------------------------Bloques---------------------------------*/
+
+.bloques{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media(min-width: 768px){
+    .bloques{        
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.bloque{
+    text-align: center;
+}
+.bloque__titulo{
+    margin: 0;
+}
+
+/*--------------------------Pagina del Producto--------------------------------------------*/
+
+@media(min-width: 768px){
+    .camisa{
+        display: grid;
+        grid-template-columns: repeat(2, 1Fr);
+        column-gap: 2rem;
+    }
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+
+.formulario__campo{
+   /* border-color: var(--primarioOscuro);/*Cambiamos el color del borde*/
+   /* border-width: 1rem; /*Le damos un ancho al borde de 1 rem*/
+   /* border-style: solid;/*Hace el estilo de linea solida*/
+    border: 1rem solid var(--primarioOscuro); /*Este comando es una simplificacion de lo que está arriba*/
+    background-color: transparent; /*Color transparente a los campos del formulario*/
+    color: var(--negro);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;/*Quita la flecha que sale hacia abajo donde estan las tallas*/
+    text-align: center;
+}
+
+.formulario__submit{
+    background-color: var(--secundario);/*Le damos color al boton*/
+    border: none; /*Todos los botenes tienen un borde, en este caso se lo quitamos*/
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease;/*Este comando nos permite hacer una transicion, osea el cambio de color del boton cuando nos paramos encima*/
+    grid-column: 1 / 3; /*Nos permite en grid hacer el boton mas grande*/
+}
+
+.formulario__submit:hover{ /*Cuando creamos un input de tipo submit (boton) este pierde la manito para enviar informacion por lo tanto el siguiente comando nos permite activarlo*/
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);/*este comando completa la transicion y le da un color diferente al boton*/
+}
